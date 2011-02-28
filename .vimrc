@@ -45,8 +45,6 @@ set laststatus=2
 " Заставляем shift-insert работать как в Xterm
 " map <S-Insert> <MiddleMouse>
 
-set foldcolumn=1
-
 " allow to use backspace instead of "x"
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 " allow backspacing over everything in insert mode
@@ -96,8 +94,15 @@ set helplang=ru
 set ruler
 "set background=dark
 set autoindent
-"set foldmethod=indent
-"set foldnestmax=1
+
+"folding settings
+set foldenable
+set foldmethod=indent
+set foldnestmax=2
+set foldlevelstart=99
+
+set formatoptions-=o "dont continue comments when pushing o/O
+
 colors desert
 set ignorecase
 set smartcase
@@ -120,6 +125,7 @@ set mousehide
 set synmaxcol=2048
 
 set number
+
 
 let g:netrw_list_hide   = '\.pyc'
 let g:proj_flags	= 'giSsTt'
