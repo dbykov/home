@@ -129,8 +129,8 @@ let python_highlight_all=1
 highlight Comment ctermfg=darkgrey
 
 nmap <C-T> :tabnew<CR>
-nmap <C-PageUp> :tabn<CR>
-nmap <C-PageDown> :tabp<CR>
+nmap <C-PageUp> :tabp<CR>
+nmap <C-PageDown> :tabn<CR>
 
 " Toggle paste mode
 nmap  ,p :set invpaste<CR>:set paste?<CR>
@@ -165,8 +165,8 @@ imap <C-F4> <Esc>:bd<CR>a
 nmap <C-F4> :bd<CR>
 
 "подсвечивать всё, что вылазит за 80-ю колонку
-au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
-au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%80v.*', -1)
+"au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
+"au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%80v.*', -1)
 
 " highlight trailing spaces
 au BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
