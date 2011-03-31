@@ -1,0 +1,8 @@
+[user]
+	name = Denis Bykov
+	email = **********
+[color]
+	ui = true
+[core]
+	editor = vim
+	pager = less
