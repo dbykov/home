@@ -103,7 +103,7 @@ set foldlevelstart=99
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
-colors desert
+colors habilight
 set ignorecase
 set smartcase
 set hlsearch
@@ -181,7 +181,6 @@ au BufNewFile,BufRead * let b:mtabbeforesp=matchadd('ErrorMsg', '\v(\t+)\ze( +)'
 au BufNewFile,BufRead * let b:mtabaftersp=matchadd('ErrorMsg', '\v( +)\zs(\t+)', -1)
 
 
-
 "set complete=""
 "set complete+=.
 "set complete+=k
@@ -204,12 +203,14 @@ if has("autocmd")
     \| exe "normal! g'\"" | endif
 endif
 
-"Toggle tags
+" Taglist
+" Toggle tags
 nnoremap <silent> <F9> :TlistToggle<CR>
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Show_One_File = 1
 
 let NERDTreeIgnore=['\.pyc$', '\~$']
 let g:bufExplorerShowRelativePath=1
-
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
