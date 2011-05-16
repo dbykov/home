@@ -5,7 +5,7 @@ set wcm=<Tab>
     menu Encoding.windows-1251  :e ++enc=cp1251<CR>
     menu Encoding.ibm-866       :e ++enc=ibm866<CR>
     menu Encoding.utf-8         :e ++enc=utf-8 <CR>
-map <F8> :emenu Encoding.<TAB>
+" map <F8> :emenu Encoding.<TAB>
 
 language en_US.UTF-8
 
@@ -170,6 +170,10 @@ nmap <F3> :execute 'NERDTreeToggle ' . getcwd()<CR>
 imap <C-F4> <Esc>:bd<CR>a
 nmap <C-F4> :bd<CR>
 
+" Компиляция
+nmap <F9> :SCCompile<CR>
+nmap <F10> :SCCompileRun<CR>
+
 "подсвечивать всё, что вылазит за 80-ю колонку
 "au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
 "au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%80v.*', -1)
@@ -205,7 +209,7 @@ endif
 
 " Taglist
 " Toggle tags
-nnoremap <silent> <F9> :TlistToggle<CR>
+nnoremap <silent> <F8> :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Show_One_File = 1
 
