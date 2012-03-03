@@ -15,4 +15,3 @@ set guioptions+=c
 set guioptions-=e
 " Задаём шрифт
 set guifont=Droid\ Sans\ Mono\ 9
-

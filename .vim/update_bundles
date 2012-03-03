@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+
+git_bundles = [
+  "git://github.com/mattn/zencoding-vim.git",
+  "git://github.com/scrooloose/nerdtree.git",
+  "git://github.com/vim-scripts/habiLight.git",
+  #"git://github.com/vim-ruby/vim-ruby.git",
+  #"git://github.com/tpope/vim-rails.git",
+  "git://github.com/ervandew/supertab.git",
+  #"git://github.com/beyondwords/vim-twig.git",
+  #"git://github.com/kchmck/vim-coffee-script.git",
+  #"git://github.com/ironcamel/vim-script-runner.git",
+  "git://github.com/paulyg/Vim-PHP-Stuff.git",
+  "git://github.com/msanders/snipmate.vim.git",
+  #"git://github.com/kevinw/pyflakes-vim.git",
+  "git://github.com/tpope/vim-fugitive.git",
+  "git://github.com/klen/python-mode.git",
+]
+
+vim_org_scripts = [
+  #['python', '12804', 'syntax'],
+  #['php', '2874', 'syntax'],
+  #['SingleCompile', '15884', 'plugin'],
+  #http://www.vim.org/scripts/script.php?script_id=2771
+]
+
+require 'fileutils'
+require 'open-uri'
+
+bundles_dir = File.join(File.dirname(__FILE__), "bundle")
+
+FileUtils.cd(bundles_dir)
+
+puts "Trashing everything (lookout!)"
+Dir["*"].each {|d| FileUtils.rm_rf d }
+
+git_bundles.each do |url|
+  dir = url.split('/').last.sub(/\.git$/, '')
+  puts "  Unpacking #{url} into #{dir}"
+  `git clone #{url} #{dir}`
+  if File.exists? File.join(dir, '.gitmodules')
+    FileUtils.cd(dir)
+    `git submodule init`
+    `git submodule update`
+    FileUtils.cd('..')
+    FileUtils.rm_rf(File.join(dir, ".gitmodules"))
+  end
+  FileUtils.rm_rf(File.join(dir, ".git"))
+end
+
+vim_org_scripts.each do |name, script_id, script_type|
+  puts "  Downloading #{name}"
+  local_file = File.join(name, script_type, "#{name}.vim")
+  FileUtils.mkdir_p(File.dirname(local_file))
+  File.open(local_file, "w") do |file|
+    file << open("http://www.vim.org/scripts/download_script.php?src_id=#{script_id}").read
+  end
+end

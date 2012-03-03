@@ -1,22 +1,24 @@
+filetype off
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+filetype plugin indent on
+
+" выключаем Vi-совместимость
 set nocompatible
+
+" меню с кодировками
 set wildmenu
-set wcm=<Tab>
+set wildcharm=<Tab>
     menu Encoding.koi8-r        :e ++enc=koi8-r<CR>
     menu Encoding.windows-1251  :e ++enc=cp1251<CR>
     menu Encoding.ibm-866       :e ++enc=ibm866<CR>
     menu Encoding.utf-8         :e ++enc=utf-8 <CR>
-" map <F8> :emenu Encoding.<TAB>
+map <F8> :emenu Encoding.<TAB>
 
-language en_US.UTF-8
-
-" Включаем мышку даже в текстовом режиме
-" (очень удобно при копировании из терминала, т. к. без этой опции,
-" например, символы табуляции раскладываются в кучу пробелов).
-" set mouse=a
-" In many terminal emulators the mouse works just fine, thus enable it.
-" if has('mouse')
-"  set mouse=a
-" endif
+" активный язык
+"language en_US.UTF-8
+language ru_RU.utf8
 
 " Минимальная высота окна
 set winminheight=0
@@ -24,26 +26,23 @@ set winminheight=0
 " Минимальная ширина окна
 set winminwidth=0
 
-" Всегда отображать статусную строку для каждого окна
-set laststatus=2
-
-" Теперь нет необходимости передвигать курсор к краю экрана, чтобы подняться в
-" режиме редактирования
+" смещение окна при заходе курсора за экран
 set scrolljump=3
 
-" Теперь нет необходимости передвигать курсор к краю экрана, чтобы опуститься 
-" в режиме редактирования
+" количество строк перед смещением окна при заходе курсора за экран
 set scrolloff=3
 
 " Выключаем надоедливый звонок
 set novisualbell
 set t_vb=   
 
-set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P 
+" Всегда отображать статусную строку для каждого окна
 set laststatus=2
-
-" Заставляем shift-insert работать как в Xterm
-" map <S-Insert> <MiddleMouse>
+set statusline=%<%f%h%m%r\ %{fugitive#statusline()}\ %b\ %{&encoding}\ 0x%B\ %l,%c%V\ %P
+"set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P
+"set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+"set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P
+"set statusline=%<%f%=\ [%1*%M%*%n%R%H]\ %-19(%3l,%02c%03V%)%O'%02b'
 
 " allow to use backspace instead of "x"
 set backspace=indent,eol,start whichwrap+=<,>,[,]
@@ -86,14 +85,13 @@ set backupdir=~/tmp/vim
 " ужасающих розовый цвет дефолтного окошка убираем
 hi Pmenu ctermbg=239
 
+" список кодировок, которые Vim будет перебирать при открытии файла. Про имена кодировок читать в :help encoding-names.
 set fileencodings=utf-8,cp1251,koi8-r,cp866
+" кодировка терминала
 set termencoding=utf-8
 set formatoptions=tcql
 set helplang=ru
-"set nu
 set ruler
-"set background=dark
-set autoindent
 
 "folding settings
 set foldenable
@@ -103,7 +101,7 @@ set foldlevelstart=99
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
-colors habilight
+colors habiLight
 set ignorecase
 set smartcase
 set hlsearch
@@ -113,19 +111,16 @@ set sidescroll=5
 set sidescrolloff=5
 set showmatch
 set history=500
-filetype plugin indent on
 set undolevels=100
 set ttyfast
 set cpoptions+=$
 set virtualedit=all
-"set mousemodel=popup
 set hidden
 set mousehide
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=2048
 
 set number
-
 
 let g:netrw_list_hide   = '\.pyc'
 let g:proj_flags	= 'giSsTt'
@@ -150,10 +145,7 @@ nmap  ,w :set invwrap<CR>:set wrap?<CR>
 " Switch to before buffer
 nmap ,# :b#<CR>
 
-"imap {<CR> {<CR>}<Esc>O<Tab>
 imap <C-Space> <C-N>
-"nmap <Home> ^
-"imap <Home> <Esc>I
 
 " сохранить файл
 imap <F2> <Esc>:w<CR>a
@@ -170,10 +162,6 @@ nmap <F3> :execute 'NERDTreeToggle ' . getcwd()<CR>
 imap <C-F4> <Esc>:bd<CR>a
 nmap <C-F4> :bd<CR>
 
-" Компиляция
-nmap <F9> :SCCompile<CR>
-nmap <F10> :SCCompileRun<CR>
-
 "подсвечивать всё, что вылазит за 80-ю колонку
 "au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
 "au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%80v.*', -1)
@@ -183,15 +171,6 @@ au BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
 " highlight tabs between spaces
 au BufNewFile,BufRead * let b:mtabbeforesp=matchadd('ErrorMsg', '\v(\t+)\ze( +)', -1)
 au BufNewFile,BufRead * let b:mtabaftersp=matchadd('ErrorMsg', '\v( +)\zs(\t+)', -1)
-
-
-"set complete=""
-"set complete+=.
-"set complete+=k
-"set complete+=b
-"set complete+=t
-"set completeopt-=preview
-"set completeopt+=longest
 
 
 augroup myfiletypes
@@ -209,7 +188,7 @@ endif
 
 " Taglist
 " Toggle tags
-nnoremap <silent> <F8> :TlistToggle<CR>
+nnoremap <silent> <F9> :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Show_One_File = 1
 
@@ -223,3 +202,8 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+autocmd FileType python set ft=python.django " For SnipMate
+autocmd FileType html set ft=htmldjango.html " For SnipMate
+
+inoremap <C-CR> <Esc>
