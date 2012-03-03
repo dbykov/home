@@ -1,8 +1,13 @@
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
 [user]
-	name = Denis Bykov
-	email = **********
+    name = Denis Bykov
+    email = **********
 [color]
-	ui = true
+    ui = true
 [core]
-	editor = vim
-	pager = less
+    editor = vim
+    pager = less
