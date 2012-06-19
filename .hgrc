@@ -1,0 +1,14 @@
+[ui]
+username = Denis Bykov
+verbose = True
+
+[alias]
+br = branch
+st = status
+ci = commit
+co = checkout
+
+[extensions]
+color =
+graphlog =
+
