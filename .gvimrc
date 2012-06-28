@@ -14,4 +14,4 @@ set guioptions+=c
 " Отключаем графические табы (текстовые занимают меньше места)
 set guioptions-=e
 " Задаём шрифт
-set guifont=Droid\ Sans\ Mono\ 9
+set guifont=Droid\ Sans\ Mono\ 10

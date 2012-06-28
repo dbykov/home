@@ -101,7 +101,8 @@ set foldlevelstart=99
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
-colors habiLight
+"colors habiLight
+colors desert
 set ignorecase
 set smartcase
 set hlsearch
