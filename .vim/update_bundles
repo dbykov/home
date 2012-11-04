@@ -1,21 +1,21 @@
 #!/usr/bin/env ruby
 
 git_bundles = [
-  "git://github.com/mattn/zencoding-vim.git",
-  "git://github.com/scrooloose/nerdtree.git",
-  "git://github.com/vim-scripts/habiLight.git",
+  "https://github.com/mattn/zencoding-vim.git",
+  "https://github.com/scrooloose/nerdtree.git",
+  "https://github.com/vim-scripts/habiLight.git",
   #"git://github.com/vim-ruby/vim-ruby.git",
   #"git://github.com/tpope/vim-rails.git",
-  "git://github.com/ervandew/supertab.git",
+  "https://github.com/ervandew/supertab.git",
   #"git://github.com/beyondwords/vim-twig.git",
   #"git://github.com/kchmck/vim-coffee-script.git",
   #"git://github.com/ironcamel/vim-script-runner.git",
   #"git://github.com/paulyg/Vim-PHP-Stuff.git",
-  "git://github.com/msanders/snipmate.vim.git",
+  "https://github.com/msanders/snipmate.vim.git",
   #"git://github.com/kevinw/pyflakes-vim.git",
-  "git://github.com/tpope/vim-fugitive.git",
-  "git://github.com/klen/python-mode.git",
-  'git://github.com/fugalh/desert.vim.git/',
+  "https://github.com/tpope/vim-fugitive.git",
+  "https://github.com/klen/python-mode.git",
+  'https://github.com/fugalh/desert.vim.git/',
 ]
 
 vim_org_scripts = [
