@@ -18,15 +18,6 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit
 compinit
 
-setopt autocd
-
-alias ls='ls --color=auto'
-alias ll='ls -lhF'
-alias la='ls -Aa'
-alias l='ls -CF'
-# Избавление от назойливого find: /var/spool/: Отказано в доступе
-alias find='find 2>/dev/null'
-
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
@@ -44,6 +35,15 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+setopt autocd
+
+alias ls='ls --color=auto'
+alias ll='ls -lhF'
+alias la='ls -Aa'
+alias l='ls -CF'
+# Избавление от назойливого find: /var/spool/: Отказано в доступе
+alias find='find 2>/dev/null'
 
 # Раскрашивание вывода less, используется программой man
 export LESS_TERMCAP_mb=$'\E[01;31m'       # начала мигающего
