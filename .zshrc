@@ -24,6 +24,7 @@ alias ls='ls --color=auto'
 alias ll='ls -lhF'
 alias la='ls -Aa'
 alias l='ls -CF'
+# Избавление от назойливого find: /var/spool/: Отказано в доступе
 alias find='find 2>/dev/null'
 
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -43,3 +44,21 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Раскрашивание вывода less, используется программой man
+export LESS_TERMCAP_mb=$'\E[01;31m'       # начала мигающего
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # начало жирного текста
+export LESS_TERMCAP_me=$'\E[0m'           # окончание
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # начала текста в инфобоксе
+export LESS_TERMCAP_se=$'\E[0m'           # конец его
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # начало подчеркнутого
+export LESS_TERMCAP_ue=$'\E[0m'           # конец подчеркнутого
+
+if [ -f /usr/bin/grc ]; then
+    alias ping="grc --colour=auto ping"
+    alias traceroute="grc --colour=auto traceroute"
+    alias make="grc --colour=auto make"
+    alias diff="grc --colour=auto diff"
+    alias cvs="grc --colour=auto cvs"
+    alias netstat="grc --colour=auto netstat"
+fi
