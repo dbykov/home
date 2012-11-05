@@ -24,6 +24,7 @@ alias ls='ls --color=auto'
 alias ll='ls -lhF'
 alias la='ls -Aa'
 alias l='ls -CF'
+alias find='find 2>/dev/null'
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
