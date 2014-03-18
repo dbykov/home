@@ -62,3 +62,9 @@ if [ -f /usr/bin/grc ]; then
     alias cvs="grc --colour=auto cvs"
     alias netstat="grc --colour=auto netstat"
 fi
+
+export WORKON_HOME=$HOME/venv
+export PROJECT_HOME=$HOME/workspace
+source /usr/local/bin/virtualenvwrapper.sh
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
