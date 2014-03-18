@@ -15,11 +15,11 @@ Config
             ["-t", "<acstatus>"
             , "-L", "10", "-H", "80"
             , "-l", "red", "-h", "green"
-            , "--", "-O", "Charging", "-o", "<icon=/home/dbykov/tmp/dzen/bitmaps/battery.xbm/> <left>%"
+            , "--", "-O", "Charging", "-o", "<icon=/home/dbykov/.xmonad/icons/battery.xbm/> <left>%"
             ] 10
         , Run Kbd []
         ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %kbd% | %battery% | <fc=#ee9a00>%date%</fc> | Kazan %UWKD% | Begishevo %UWKE%"
+    , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | <fc=#ee9a00>%kbd%</fc> | %battery% | <fc=#ee9a00>%date%</fc> | Kazan %UWKD% | Begishevo %UWKE%"
     }
