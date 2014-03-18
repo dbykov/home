@@ -1,0 +1,25 @@
+Config
+    { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+    , bgColor = "black"
+    , fgColor = "grey"
+    , position = Top
+    , commands =
+        [ Run Weather "UWKD" ["-t","<tempC>°C","-L","64","-H","77","--normal","green","--high","red","--low","lightblue"] 36000
+        , Run Weather "UWKE" ["-t","<tempC>°C","-L","64","-H","77","--normal","green","--high","red","--low","lightblue"] 36000
+        , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+        , Run Memory ["-t","Mem: <usedratio>%"] 10
+        , Run Swap [] 10
+        , Run DateZone "%a %d %b %H:%M" "ru_RU.UTF-8" "Europe/Moscow" "date" 10
+        , Run StdinReader
+        , Run BatteryP ["BAT1"]
+            ["-t", "<acstatus>"
+            , "-L", "10", "-H", "80"
+            , "-l", "red", "-h", "green"
+            , "--", "-O", "Charging", "-o", "<icon=/home/dbykov/tmp/dzen/bitmaps/battery.xbm/> <left>%"
+            ] 10
+        , Run Kbd []
+        ]
+    , sepChar = "%"
+    , alignSep = "}{"
+    , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %kbd% | %battery% | <fc=#ee9a00>%date%</fc> | Kazan %UWKD% | Begishevo %UWKE%"
+    }
