@@ -1,4 +1,6 @@
 Репозиторий домашних настроек
 - vim, gvim
-    sudo apt-get install ttf-droid
+    $ apt-get install ttf-droid
 - guake
+- xmonad
+    $ cabal install xmobar --flags="all_extensions"
