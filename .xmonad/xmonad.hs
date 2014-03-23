@@ -5,11 +5,14 @@ import XMonad.Util.EZConfig(additionalKeysP)
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.SpawnOnce
 import System.IO
+import qualified XMonad.StackSet as W
 
 main = do
     xmproc <- spawnPipe "~/.cabal/bin/xmobar ~/.xmonad/.xmobarrc"
     xmonad $ defaultConfig
-        { manageHook = manageDocks <+> manageHook defaultConfig
+        { manageHook = manageHook defaultConfig
+            <+> composeAll [className =? "Skype" --> doF (W.shift "3")]
+            <+> manageDocks
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
             { ppOutput = hPutStrLn xmproc
