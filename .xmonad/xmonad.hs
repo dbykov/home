@@ -1,6 +1,9 @@
 import XMonad
+import XMonad.Actions.SpawnOn
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.Script
+import XMonad.Hooks.SetWMName
 import XMonad.Util.EZConfig(additionalKeysP)
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.SpawnOnce
@@ -18,11 +21,11 @@ main = do
             { ppOutput = hPutStrLn xmproc
             , ppTitle = xmobarColor "green" "" . shorten 50
             }
-        , startupHook = spawnOnce "~/.xmonad/switch_layout.sh"
+        , startupHook = execScriptHook "switch_layout" <+> setWMName "LG3D"
         , modMask = mod4Mask
         , focusedBorderColor = "orange"
         }
         `additionalKeysP`
-        [ ("<XF86AudioLowerVolume>", spawn "amixer -c 0 set Master 2dB-")
-        , ("<XF86AudioRaiseVolume>", spawn "amixer -c 0 set Master 2dB+")
+        [ ("<XF86AudioLowerVolume>", spawn "amixer set Master 2dB-")
+        , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 2dB+")
         ]
