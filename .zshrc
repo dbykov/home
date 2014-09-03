@@ -73,3 +73,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/home/dbykov/.gvm/bin/gvm-init.sh" ]] && source "/home/dbykov/.gvm/bin/gvm-init.sh"
+
+# Cabal is a system for building and packaging Haskell libraries and programs
+export PATH=$HOME/.cabal/bin:$PATH
