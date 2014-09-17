@@ -67,12 +67,13 @@ export WORKON_HOME=$HOME/venv
 export PROJECT_HOME=$HOME/workspace
 source /usr/local/bin/virtualenvwrapper.sh
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/home/dbykov/.gvm/bin/gvm-init.sh" ]] && source "/home/dbykov/.gvm/bin/gvm-init.sh"
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
 # Cabal is a system for building and packaging Haskell libraries and programs
 export PATH=$HOME/.cabal/bin:$PATH
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/dbykov/.gvm/bin/gvm-init.sh" ]] && source "/home/dbykov/.gvm/bin/gvm-init.sh"
