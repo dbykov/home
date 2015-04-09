@@ -1,0 +1,9 @@
+#!/bin/bash
+notify-send "script with hooks has been started"
+
+setxkbmap -layout "us,ru"
+setxkbmap -option "grp:caps_toggle,grp_led:scroll,compose:ralt"
+notify-send "keyboard layout has been changed"
+
+dropbox start
+notify-send "dropbox started"
