@@ -175,5 +175,6 @@ bindsym $mod+KP_Subtract exec --no-startup-id amixer set Master 2dB-
 
 assign [class="^Skype$"] 4
 assign [class="^jetbrains-idea$"] 1
+assign [class="^jetbrains-pycharm$"] 1
 
 exec ~/.i3/hooks
