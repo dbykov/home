@@ -11,3 +11,5 @@
 [core]
     editor = vim
     pager = less
+[push]
+    default = simple
