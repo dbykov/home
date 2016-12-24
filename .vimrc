@@ -79,8 +79,8 @@ set showcmd
 
 " Все swap файлы будут помещаться в эту папку
 "set dir=~/tmp/swp
-set directory=~/tmp/vim
-set backupdir=~/tmp/vim
+set directory=/tmp
+set backupdir=/tmp
 
 " ужасающих розовый цвет дефолтного окошка убираем
 hi Pmenu ctermbg=239
