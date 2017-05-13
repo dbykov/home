@@ -174,6 +174,7 @@ bindsym $mod+KP_Add exec --no-startup-id amixer set Master 2dB+
 bindsym $mod+KP_Subtract exec --no-startup-id amixer set Master 2dB-
 
 assign [class="^Skype$"] 4
+assign [class="^skypeforlinux$"] 4
 assign [class="^jetbrains-idea$"] 1
 assign [class="^jetbrains-pycharm$"] 1
 
