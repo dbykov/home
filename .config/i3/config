@@ -7,7 +7,7 @@
 
 # i3 config file (v4)
 #
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
 
@@ -182,16 +182,21 @@ bar {
 bindsym --release $mod+x exec --no-startup-id import ~/Dropbox/Public/latest-screenshot.png
 
 # Lock screen
-bindsym $mod+Control+l exec i3lock -i /home/dbykov/.i3/i3lock.png -t -p default
+bindsym $mod+Control+l exec i3lock -i /home/dbykov/.config/i3/i3lock.png -t -p default
 
 # Volume
 bindsym $mod+KP_Add exec --no-startup-id amixer set Master 2dB+
 bindsym $mod+KP_Subtract exec --no-startup-id amixer set Master 2dB-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2dB+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2dB-
 
 assign [class="^Skype$"] 4
 assign [class="^jetbrains-idea$"] 1
 assign [class="^jetbrains-pycharm$"] 1
 assign [class="^jetbrains-pycharm-ce$"] 1
+assign [class="^jetbrains-goland$"] 1
 assign [class="^Code$"] 1
+
+bindsym $mod+minus sticky toggle
 
 exec ~/.config/i3/hooks
